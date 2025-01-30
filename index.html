@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dla Laury</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-color: pink;
+        }
+        .card, .question, .gif {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .question, .gif {
+            display: none;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes { background: lightgreen; }
+        .no { background: lightcoral; position: relative; }
+    </style>
+</head>
+<body>
+    <div class="card">Dla Laury</div>
+    <div class="question">
+        <h2>Czy zostaniesz moja walentynka?</h2>
+        <div class="buttons">
+            <button class="yes" onclick="showGif()">Yes</button>
+            <button class="no" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+    <div class="gif">
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cute GIF">
+    </div>
+    
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.display = 'none';
+            document.querySelector('.question').style.display = 'block';
+        }, 2000);
+
+        function showGif() {
+            document.querySelector('.question').style.display = 'none';
+            document.querySelector('.gif').style.display = 'block';
+        }
+        
+        function moveNoButton() {
+            let button = document.querySelector('.no');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
